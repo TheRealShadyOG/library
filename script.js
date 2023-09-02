@@ -119,3 +119,7 @@ const newBookDialog = document.getElementById('newbookdialog');
 newBookButton.addEventListener('click', () => {
   newBookDialog.setAttribute('open', true);
 });
+
+function closeDialog() {
+  newBookDialog.close()
+}
