@@ -22,71 +22,92 @@ const purificationOfTheHeart = new Book("Purification Of The Heart", "Hamza Yusu
 addBookToLibrary(purificationOfTheHeart);
 
 // Function to display current books on .main
+function displayBooks() {
+  for (let i = 0; i < myLibrary.length; i++) {
+    assembleCard();
+
+    const main = document.querySelector('.main');
+    let card = main.lastElementChild; 
+
+    nameContent = card.querySelector('.namecontent');
+    authorContent = card.querySelector('.authorcontent');
+    pagesContent = card.querySelector('.pagescontent');
+    readContent = card.querySelector('.readcontent');
+
+
+    nameContent.textContent = `${myLibrary[i].name}`  
+    authorContent.textContent = `${myLibrary[i].author}`
+    pagesContent.textContent = `${myLibrary[i].pages}`
+    readContent.textContent = `${myLibrary[i].read}`
+  }
+}
 
 // Function that makes new .card in .main
 
 function assembleCard() {
-    const nameContainer = document.createElement('div');
-    const nameTitle = document.createElement('div');
-    const nameContent = document.createElement('div'); 
+  const nameContainer = document.createElement('div');
+  const nameTitle = document.createElement('div');
+  const nameContent = document.createElement('div'); 
 
-    nameContainer.classList.add('namecontainer');
-    nameContent.classList.add('namecontent');
+  nameContainer.classList.add('namecontainer');
+  nameContent.classList.add('namecontent');
 
-    nameTitle.textContent = 'Name:';
+  nameTitle.textContent = 'Name:';
 
-    nameContainer.appendChild(nameTitle);
-    nameContainer.appendChild(nameContent);
+  nameContainer.appendChild(nameTitle);
+  nameContainer.appendChild(nameContent);
 
-    const authorContainer = document.createElement('div');
-    const authorTitle = document.createElement('div');
-    const authorContent = document.createElement('div');
+  const authorContainer = document.createElement('div');
+  const authorTitle = document.createElement('div');
+  const authorContent = document.createElement('div');
 
-    authorContainer.classList.add('authorcontainer');
-    authorContent.classList.add('authorcontent');
+  authorContainer.classList.add('authorcontainer');
+  authorContent.classList.add('authorcontent');
 
-    authorTitle.textContent = 'Author:';
+  authorTitle.textContent = 'Author:';
 
-    authorContainer.appendChild(authorTitle);
-    authorContainer.appendChild(authorContent);
+  authorContainer.appendChild(authorTitle);
+  authorContainer.appendChild(authorContent);
 
-    const pagesContainer = document.createElement('div');
-    const pagesTitle = document.createElement('div');
-    const pagesContent = document.createElement('div');
+  const pagesContainer = document.createElement('div');
+  const pagesTitle = document.createElement('div');
+  const pagesContent = document.createElement('div');
 
-    pagesContainer.classList.add('pagescontainer');
-    pagesContent.classList.add('pagescontent');
+  pagesContainer.classList.add('pagescontainer');
+  pagesContent.classList.add('pagescontent');
 
-    pagesTitle.textContent = 'Pages:';
+  pagesTitle.textContent = 'Pages:';
 
-    pagesContainer.appendChild(pagesTitle);
-    pagesContainer.appendChild(pagesContent);
+  pagesContainer.appendChild(pagesTitle);
+  pagesContainer.appendChild(pagesContent);
 
-    const readContainer = document.createElement('div');
-    const readTitle = document.createElement('div');
-    const readContent = document.createElement('div');
+  const readContainer = document.createElement('div');
+  const readTitle = document.createElement('div');
+  const readContent = document.createElement('div');
 
-    readContainer.classList.add('readcontainer');
-    readContent.classList.add('readcontent');
+  readContainer.classList.add('readcontainer');
+  readContent.classList.add('readcontent');
 
-    readTitle.textContent = 'Read:';
+  readTitle.textContent = 'Read:';
 
-    readContainer.appendChild(readTitle);
-    readContainer.appendChild(readContent);
+  readContainer.appendChild(readTitle);
+  readContainer.appendChild(readContent);
 
-    const img = document.createElement('img');
-    img.setAttribute('src', './assets/x.svg');
-    img.classList.add('img');    
+  const img = document.createElement('img');
+  img.setAttribute('src', './assets/x.svg');
+  img.classList.add('img');    
 
-    const card = document.createElement('div');
-    card.classList.add('card');
+  const card = document.createElement('div');
+  card.classList.add('card');
 
-    card.appendChild(nameContainer);
-    card.appendChild(authorContainer);
-    card.appendChild(pagesContainer);
-    card.appendChild(readContainer);
-    card.appendChild(img);
+  card.appendChild(nameContainer);
+  card.appendChild(authorContainer);
+  card.appendChild(pagesContainer);
+  card.appendChild(readContainer);
+  card.appendChild(img);
 
-    let main = document.querySelector('.main');
-    main.appendChild(card);
+  let main = document.querySelector('.main');
+  main.appendChild(card);
+
+  return [nameContent, authorContent, pagesContent, readContent]
 }
