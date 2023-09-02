@@ -20,3 +20,73 @@ addBookToLibrary(quran);
 const purificationOfTheHeart = new Book("Purification Of The Heart", "Hamza Yusuf", "220", 
                                         "Currently Reading");
 addBookToLibrary(purificationOfTheHeart);
+
+// Function to display current books on .main
+
+// Function that makes new .card in .main
+
+function assembleCard() {
+    const nameContainer = document.createElement('div');
+    const nameTitle = document.createElement('div');
+    const nameContent = document.createElement('div'); 
+
+    nameContainer.classList.add('namecontainer');
+    nameContent.classList.add('namecontent');
+
+    nameTitle.textContent = 'Name:';
+
+    nameContainer.appendChild(nameTitle);
+    nameContainer.appendChild(nameContent);
+
+    const authorContainer = document.createElement('div');
+    const authorTitle = document.createElement('div');
+    const authorContent = document.createElement('div');
+
+    authorContainer.classList.add('authorcontainer');
+    authorContent.classList.add('authorcontent');
+
+    authorTitle.textContent = 'Author:';
+
+    authorContainer.appendChild(authorTitle);
+    authorContainer.appendChild(authorContent);
+
+    const pagesContainer = document.createElement('div');
+    const pagesTitle = document.createElement('div');
+    const pagesContent = document.createElement('div');
+
+    pagesContainer.classList.add('pagescontainer');
+    pagesContent.classList.add('pagescontent');
+
+    pagesTitle.textContent = 'Pages:';
+
+    pagesContainer.appendChild(pagesTitle);
+    pagesContainer.appendChild(pagesContent);
+
+    const readContainer = document.createElement('div');
+    const readTitle = document.createElement('div');
+    const readContent = document.createElement('div');
+
+    readContainer.classList.add('readcontainer');
+    readContent.classList.add('readcontent');
+
+    readTitle.textContent = 'Read:';
+
+    readContainer.appendChild(readTitle);
+    readContainer.appendChild(readContent);
+
+    const img = document.createElement('img');
+    img.setAttribute('src', './assets/x.svg');
+    img.classList.add('img');    
+
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    card.appendChild(nameContainer);
+    card.appendChild(authorContainer);
+    card.appendChild(pagesContainer);
+    card.appendChild(readContainer);
+    card.appendChild(img);
+
+    let main = document.querySelector('.main');
+    main.appendChild(card);
+}
