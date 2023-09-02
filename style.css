@@ -35,6 +35,15 @@ body {
 
 .sidebar {
     grid-area: sidebar;
+
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-left: 16px;
+}
+
+.sidebar > div {
+    display: flex;
 }
 
 .main {
