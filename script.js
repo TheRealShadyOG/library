@@ -111,3 +111,11 @@ function assembleCard() {
 
   return [nameContent, authorContent, pagesContent, readContent]
 }
+
+// New book button opens dialog 
+const newBookButton = document.getElementById('newbook');
+const newBookDialog = document.getElementById('newbookdialog');
+
+newBookButton.addEventListener('click', () => {
+  newBookDialog.setAttribute('open', true);
+});
