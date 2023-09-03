@@ -195,6 +195,7 @@ saveBtn.addEventListener('click', () => {
   displayBooks();
   setDeleteBtn();
   closeDialog();
+  updateSidebar();
 });
 
 // card x img deletes book from library
@@ -207,6 +208,7 @@ function setDeleteBtn() {
       let author = e.target.parentElement.children[1].lastChild.textContent;
       deleteBook(card);
       removeFromLibrary(name, author);
+      updateSidebar();
     });
   }
 }
@@ -250,4 +252,34 @@ function changeReadStatus(e) {
       }
     }
   }
+  updateSidebar();
 }
+
+// Have sidebar numbers accurate to myLibrary
+const sideRead = document.getElementById('sideread');
+const sideReading = document.getElementById('sidereading');
+const sideUnread = document.getElementById('sideunread');
+const sideTotal = document.getElementById('sidetotal');
+
+function updateSidebar() {
+  let sideReadNum = 0;
+  let sideReadingNum = 0;
+  let sideUnreadNum = 0;
+  for (let i = 0; i < myLibrary.length; i++) {
+    
+    if (myLibrary[i].read === 'Read') {
+      sideReadNum += 1;
+    } else if (myLibrary[i].read === 'Reading') {
+      sideReadingNum += 1;
+    } else if (myLibrary[i].read === 'Unread') {
+      sideUnreadNum += 1;
+    }
+  }
+  sideRead.textContent = sideReadNum;
+  sideReading.textContent = sideReadingNum;
+  sideUnread.textContent = sideUnreadNum;
+  sideTotal.textContent = myLibrary.length;
+}
+
+updateSidebar();
+displayBooks();
