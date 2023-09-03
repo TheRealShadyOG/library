@@ -130,7 +130,6 @@ function assembleCard() {
   const img = document.createElement('img');
   img.setAttribute('src', './assets/x.svg');
   img.classList.add('bookdelete');    
-  setDeleteBtn();
 
   const card = document.createElement('div');
   card.classList.add('card');
@@ -187,6 +186,7 @@ const saveBtn = document.getElementById('save');
 saveBtn.addEventListener('click', () => {
   addNewBook();
   displayBooks();
+  setDeleteBtn();
   closeDialog();
 });
 
@@ -194,7 +194,7 @@ saveBtn.addEventListener('click', () => {
 function setDeleteBtn() {
   let bookDeleteBtn = document.getElementsByClassName('bookdelete');
   for (i = 0; i < bookDeleteBtn.length; i++) {
-    bookDeleteBtn[i].addEventListener('click', () => {
+      bookDeleteBtn[i].addEventListener('click', () => {  
       deleteBook();
     });
   }
