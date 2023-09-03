@@ -252,3 +252,8 @@ form > button:active {
     top: 16px;
     right: 16px;
 }
+
+.searched {
+    background-color: #4b5563;
+    color: #f3f4f6;
+}
