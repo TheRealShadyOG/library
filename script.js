@@ -24,7 +24,7 @@ addBookToLibrary(purificationOfTheHeart);
 // Function to display current books on .main
 function displayBooks() {
   for (let i = 0; i < myLibrary.length; i++) {
-    if (nameCheck(myLibrary[i].name) === 0 && authorCheck(myLibrary[i].author) === 0) {
+    if (nameCheck(myLibrary[i].name) === 0 || authorCheck(myLibrary[i].author) === 0) {
     assembleCard();
 
     const main = document.querySelector('.main');
