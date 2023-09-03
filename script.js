@@ -49,7 +49,7 @@ function getNameArray() {
   for (let i = 0; i < bookNameArray.length; i++) {
     nameArray.push(bookNameArray[i].textContent)
   }
-  console.log(nameArray)
+  return nameArray
 } 
 
 function getAuthorArray() {
@@ -58,7 +58,7 @@ function getAuthorArray() {
   for (let i = 0; i < bookAuthorArray.length; i++) {
     authorArray.push(bookAuthorArray[i].textContent)
   }
-  console.log(authorArray)
+  return authorArray
 }
 
 // Function that makes new .card in .main
