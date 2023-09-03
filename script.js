@@ -157,3 +157,33 @@ newBookButton.addEventListener('click', () => {
 function closeDialog() {
   newBookDialog.close()
 }
+
+// Save dialog into new book in library
+function addNewBook() {
+  const newName = document.getElementById('name').value;
+  const newAuthor = document.getElementById('author').value;
+  const newPages = document.getElementById('pages').value;
+  const newRead = getRadioValue();
+
+  if (newName !== '' && newAuthor !== '' && newPages !== '' & newRead !== '') {
+    let newbook = new Book(newName, newAuthor, newPages ,newRead)
+    addBookToLibrary(newbook);
+  }
+}
+
+function getRadioValue() {
+  let radioValues = document.getElementsByName('read');
+
+  for (i = 0; i < radioValues.length; i++) {
+    if (radioValues[i].checked) {
+      return radioValues[i].value
+    }
+  }
+}
+
+const saveBtn = document.getElementById('save');
+saveBtn.addEventListener('click', () => {
+  addNewBook();
+  displayBooks();
+  closeDialog();
+});
