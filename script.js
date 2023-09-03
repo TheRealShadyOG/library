@@ -18,7 +18,7 @@ const quran = new Book("Quran", "Allah", "604", "Read");
 addBookToLibrary(quran);
 
 const purificationOfTheHeart = new Book("Purification Of The Heart", "Hamza Yusuf", "220", 
-                                        "Currently Reading");
+                                        "Reading");
 addBookToLibrary(purificationOfTheHeart);
 
 // Function to display current books on .main
@@ -34,12 +34,14 @@ function displayBooks() {
     authorContent = card.querySelector('.authorcontent');
     pagesContent = card.querySelector('.pagescontent');
     readContent = card.querySelector('.readcontent');
+    readBtn = card.querySelector('.readbtn');
 
 
     nameContent.textContent = `${myLibrary[i].name}`  
     authorContent.textContent = `${myLibrary[i].author}`
     pagesContent.textContent = `${myLibrary[i].pages}`
     readContent.textContent = `${myLibrary[i].read}`
+    readBtn.textContent = `${myLibrary[i].read}`
     }
   }
 }
@@ -131,6 +133,9 @@ function assembleCard() {
   img.setAttribute('src', './assets/x.svg');
   img.classList.add('bookdelete');    
 
+  const btn = document.createElement('button');
+  btn.classList.add('readbtn')
+
   const card = document.createElement('div');
   card.classList.add('card');
 
@@ -139,6 +144,7 @@ function assembleCard() {
   card.appendChild(pagesContainer);
   card.appendChild(readContainer);
   card.appendChild(img);
+  card.appendChild(btn);
 
   let main = document.querySelector('.main');
   main.appendChild(card);
