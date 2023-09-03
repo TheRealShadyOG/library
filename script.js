@@ -44,7 +44,11 @@ function displayBooks() {
     readBtn.textContent = `${myLibrary[i].read}`
     }
   }
+  setDeleteBtn();
+  updateSidebar();
 }
+
+displayBooks();
 
 // filter for displayBooks
 function nameCheck(name) {
@@ -280,9 +284,6 @@ function updateSidebar() {
   sideUnread.textContent = sideUnreadNum;
   sideTotal.textContent = myLibrary.length;
 }
-
-updateSidebar();
-displayBooks();
 
 // Make searchbar work 
 const searchbar = document.getElementById('search');
