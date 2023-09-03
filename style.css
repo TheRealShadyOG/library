@@ -159,6 +159,23 @@ body {
     right: 8px;
 }
 
+.card > button {
+    height: 36px;
+    width: 72px;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    border: none;
+    border-radius: 18px;
+    color: #4b5563;
+    background-color: #f3f4f6;
+}
+
+.card > button:active {
+    background-color: #4b5563;
+    color: #9ca3af;
+}
+
 .dialogcenter{
     position: absolute;
     top: 50%;
