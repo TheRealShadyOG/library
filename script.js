@@ -42,6 +42,25 @@ function displayBooks() {
   }
 }
 
+// Get current cards name/author
+function getNameArray() {
+  const bookNameArray = document.querySelectorAll('.namecontent');
+  let nameArray = [];
+  for (let i = 0; i < bookNameArray.length; i++) {
+    nameArray.push(bookNameArray[i].textContent)
+  }
+  console.log(nameArray)
+} 
+
+function getAuthorArray() {
+  const bookAuthorArray = document.querySelectorAll('.authorcontent');
+  let authorArray = [];
+  for (let i = 0; i < bookAuthorArray.length; i++) {
+    authorArray.push(bookAuthorArray[i].textContent)
+  }
+  console.log(authorArray)
+}
+
 // Function that makes new .card in .main
 
 function assembleCard() {
