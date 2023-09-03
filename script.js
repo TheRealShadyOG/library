@@ -283,3 +283,43 @@ function updateSidebar() {
 
 updateSidebar();
 displayBooks();
+
+// Make searchbar work 
+const searchbar = document.getElementById('search');
+
+searchbar.addEventListener('keyup', () => {
+  let searchbarText = document.getElementById('search').value;
+  let names = document.getElementsByClassName('namecontent');
+  let authors = document.getElementsByClassName('authorcontent');
+
+  if (searchbarText.includes(':')) {
+    let searchArray = searchbarText.split(':');
+    let searchSelector = searchArray[0].toLowerCase();
+    let searchText = searchArray[1].toLowerCase();
+
+    if (searchText !== '') {
+      if (searchSelector === 'name') {
+        for (let i = 0; i < names.length; i++) {
+          if (names[i].textContent.toLowerCase().indexOf(searchText) > -1) {
+            names[i].parentElement.parentElement.classList.add('searched');
+          } else {
+            names[i].parentElement.parentElement.classList.remove('searched');
+          }
+        }
+      } else if (searchSelector === 'author') {
+        for (let i = 0; i < authors.length; i++) {  
+          if (authors[i].textContent.toLowerCase().indexOf(searchText) > -1) {
+            authors[i].parentElement.parentElement.classList.add('searched');
+          } else {
+            names[i].parentElement.parentElement.classList.remove('searched');
+          }
+          }
+      } 
+    } else {
+      let removeClass = document.querySelectorAll('.searched');
+      removeClass.forEach( (e) => {
+        e.classList.remove('searched');
+      });
+    }
+  }
+});
