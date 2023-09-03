@@ -130,6 +130,7 @@ function assembleCard() {
   const img = document.createElement('img');
   img.setAttribute('src', './assets/x.svg');
   img.classList.add('bookdelete');    
+  setDeleteBtn();
 
   const card = document.createElement('div');
   card.classList.add('card');
@@ -188,3 +189,13 @@ saveBtn.addEventListener('click', () => {
   displayBooks();
   closeDialog();
 });
+
+// card x img deletes book from library
+function setDeleteBtn() {
+  let bookDeleteBtn = document.getElementsByClassName('bookdelete');
+  for (i = 0; i < bookDeleteBtn.length; i++) {
+    bookDeleteBtn[i].addEventListener('click', () => {
+      deleteBook();
+    });
+  }
+}
