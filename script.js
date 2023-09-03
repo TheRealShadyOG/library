@@ -134,7 +134,8 @@ function assembleCard() {
   img.classList.add('bookdelete');    
 
   const btn = document.createElement('button');
-  btn.classList.add('readbtn')
+  btn.classList.add('readbtn');
+  btn.setAttribute('onClick', 'changeReadStatus(this)')
 
   const card = document.createElement('div');
   card.classList.add('card');
@@ -219,6 +220,34 @@ function removeFromLibrary(name, author) {
   for (let i = 0; i < myLibrary.length; i++) {
     if (name === myLibrary[i].name && author === myLibrary[i].author) {
       const deleted = myLibrary.splice(i, 1);
+    }
+  }
+}
+
+function changeReadStatus(e) {
+  let card = e.parentElement;
+  let cardName = e.parentElement.children[0].lastChild.textContent;
+  let cardAuthor = e.parentElement.children[1].lastChild.textContent;
+
+  readContent = card.querySelector('.readcontent');
+  readBtn = card.querySelector('.readbtn');
+
+  for (let i = 0; i < myLibrary.length; i++) {
+    if (cardName === myLibrary[i].name && cardAuthor === myLibrary[i].author) {
+      
+      if (myLibrary[i].read === 'Read') {
+        myLibrary[i].read = 'Unread';
+        readContent.textContent = myLibrary[i].read
+        readBtn.textContent = myLibrary[i].read
+      } else if (myLibrary[i].read === 'Unread') {
+        myLibrary[i].read = 'Reading';
+        readContent.textContent = myLibrary[i].read
+        readBtn.textContent = myLibrary[i].read
+      } else if (myLibrary[i].read === 'Reading') {
+        myLibrary[i].read = 'Read';
+        readContent.textContent = myLibrary[i].read
+        readBtn.textContent = myLibrary[i].read
+      }
     }
   }
 }
