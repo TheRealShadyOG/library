@@ -194,8 +194,25 @@ saveBtn.addEventListener('click', () => {
 function setDeleteBtn() {
   let bookDeleteBtn = document.getElementsByClassName('bookdelete');
   for (i = 0; i < bookDeleteBtn.length; i++) {
-      bookDeleteBtn[i].addEventListener('click', () => {  
-      deleteBook();
+    bookDeleteBtn[i].addEventListener('click', (e) => {  
+      let card = e.target.parentElement;
+      let name = e.target.parentElement.children[0].lastChild.textContent;
+      let author = e.target.parentElement.children[1].lastChild.textContent;
+      deleteBook(card);
+      removeFromLibrary(name, author);
     });
+  }
+}
+
+function deleteBook(card) {
+  const main = document.querySelector('.main');
+  main.removeChild(card);
+}
+
+function removeFromLibrary(name, author) {
+  for (let i = 0; i < myLibrary.length; i++) {
+    if (name === myLibrary[i].name && author === myLibrary[i].author) {
+      const deleted = myLibrary.splice(i, 1);
+    }
   }
 }
