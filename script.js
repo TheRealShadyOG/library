@@ -129,7 +129,7 @@ function assembleCard() {
 
   const img = document.createElement('img');
   img.setAttribute('src', './assets/x.svg');
-  img.classList.add('img');    
+  img.classList.add('bookdelete');    
 
   const card = document.createElement('div');
   card.classList.add('card');
