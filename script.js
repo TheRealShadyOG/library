@@ -321,5 +321,10 @@ searchbar.addEventListener('keyup', () => {
         e.classList.remove('searched');
       });
     }
+  }  else {
+    let removeClass = document.querySelectorAll('.searched');
+      removeClass.forEach( (e) => {
+        e.classList.remove('searched');
+      });
   }
 });
