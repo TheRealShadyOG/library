@@ -151,11 +151,12 @@ const newBookButton = document.getElementById('newbook');
 const newBookDialog = document.getElementById('newbookdialog');
 
 newBookButton.addEventListener('click', () => {
-  newBookDialog.setAttribute('open', true);
+  newBookDialog.show();
 });
 
 function closeDialog() {
   newBookDialog.close()
+  document.getElementById('dialogform').reset();
 }
 
 // Save dialog into new book in library
