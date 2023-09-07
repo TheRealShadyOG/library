@@ -1,14 +1,19 @@
 const myLibrary = [];
 
-function Book(name, author, pages, read) {
-    this.name = name
-    this.author = author
-    this.pages = pages
-    this.read = read
-    this.info = function() {
-      return `${name}, ${pages}, ${read}`
-    }
+// turn into a class
+class Book {
+  constructor(name, author, pages, read) {
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
   }
+
+  info() {
+    return `${this.name}, ${this.pages}, ${this.read}`
+  }
+
+}
   
 function addBookToLibrary(object) {
     myLibrary.push(object);
@@ -47,8 +52,6 @@ function displayBooks() {
   setDeleteBtn();
   updateSidebar();
 }
-
-displayBooks();
 
 // filter for displayBooks
 function nameCheck(name) {
@@ -329,3 +332,5 @@ searchbar.addEventListener('keyup', () => {
       });
   }
 });
+
+displayBooks();
